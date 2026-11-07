@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="MDC__Y: jadwal youth, Alkitab, dan komitmen pelayanan.">
+<meta name="description" content="MDC__Y: jadwal youth, Alkitab, komitmen pelayanan, dan Prayer Service.">
 <style>
 :root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 body{margin:0}
@@ -235,8 +235,8 @@ svg.i{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.7;stro
 @media (prefers-reduced-motion:reduce){*{transition-duration:.01ms!important;animation-duration:.01ms!important}}
 
 /* ---- komitmen ---- */
-.tabbar nav{grid-template-columns:repeat(4,1fr)}
-.ind{width:calc((100% - 34px)/4)}
+.tabbar nav{grid-template-columns:repeat(5,1fr)}
+.ind{width:calc((100% - 40px)/5)}
 .tab{font-size:10.5px}
 .cols{display:block}
 .kgrid{display:grid;grid-template-columns:minmax(0,1fr);gap:14px}
@@ -299,6 +299,25 @@ svg.i{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.7;stro
 .bar i{display:block;height:100%;width:0;border-radius:9px;background:var(--accent);transition:width .7s cubic-bezier(.3,1,.4,1)}
 .kp-go{display:inline-flex;align-items:center;gap:6px;margin-top:14px;font-size:13px;font-weight:700;color:var(--accent-text)}
 .kp-go svg{width:16px;height:16px}
+
+/* ---- prayer service ---- */
+.doa-wrap{max-width:560px}
+.doa-wrap .pledge label{margin-top:0}
+.seg{display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:4px;border-radius:99px;background:var(--surface-2);border:1px solid var(--line)}
+.seg button{height:42px;border-radius:99px;font-size:14px;font-weight:700;color:var(--muted);transition:background-color .25s,color .25s}
+.seg button[aria-checked="true"]{background:var(--accent);color:var(--accent-ink)}
+.anon-note{margin:14px 0 0;padding:12px 14px;border-radius:14px;background:var(--surface-2);border:1px solid var(--line);font-size:12.5px;color:var(--muted)}
+.count{display:flex;justify-content:flex-end;margin-top:6px;font-family:var(--font-num);font-size:11.5px;color:var(--muted)}
+#psend{margin-top:4px}
+#psend:disabled{opacity:.7}
+.doa-done{text-align:center;display:flex;flex-direction:column;align-items:center;gap:6px;padding:28px 20px}
+.doa-done .kd{margin:0;max-width:34ch}
+.doa-done .stat{margin:6px 0 14px;font-size:12px;font-weight:600;padding:6px 12px;border-radius:99px;background:var(--surface-2);border:1px solid var(--line);color:var(--muted)}
+.okmark{width:64px;height:64px;border-radius:50%;background:var(--accent);display:grid;place-items:center;margin-bottom:8px;box-shadow:0 0 0 10px var(--glow)}
+.okmark svg{width:30px;height:30px;fill:none;stroke:var(--accent-ink);stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:24;stroke-dashoffset:24}
+.doa-done.show .okmark svg{stroke-dashoffset:0;transition:stroke-dashoffset .5s ease .2s}
+@media (prefers-reduced-motion:no-preference){.doa-done.show{animation:rise .5s cubic-bezier(.2,.8,.2,1) both}}
+@media (min-width:1024px){.doa-wrap{margin-inline:0}}
 
 /* ---- responsive: tablet and laptop ---- */
 @media (min-width:700px){
@@ -368,7 +387,8 @@ svg.i{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.7;stro
   <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3.5 2.6 5.4 5.9.8-4.3 4.1 1 5.9L12 16.9 6.8 19.7l1-5.9L3.5 9.7l5.9-.8z"/></symbol>
   <symbol id="i-music" viewBox="0 0 24 24"><path d="M9 18V6l10-2v12"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="16.5" cy="16" r="2.5"/></symbol>
   <symbol id="i-people" viewBox="0 0 24 24"><circle cx="9" cy="9" r="3.2"/><path d="M3.5 19c.6-3.2 2.9-5 5.5-5s4.9 1.8 5.5 5M16 6.3a3 3 0 0 1 0 5.6M17.5 14.3c1.7.6 2.7 2.2 3 4.7"/></symbol>
-  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></symbol>
+  <symbol id="i-flame" viewBox="0 0 24 24"><path d="M12 3c.8 3.2 5 5.2 5 10a5 5 0 0 1-10 0c0-2 1-3.4 2.2-4.4.2 1.6 1 2.6 2 2.8C11.6 8.6 11 6 12 3z"/></symbol>
+  <symbol id="i-heart"viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></symbol>
 </svg>
 
 <div class="app">
@@ -417,6 +437,13 @@ svg.i{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.7;stro
       <strong id="kpTitle">Siap ambil langkah berikutnya?</strong>
       <div class="bar"><i id="kpBar"></i></div>
       <span class="kp-go">Buka komitmen <svg class="i"><use href="#i-arrow"/></svg></span>
+    </a>
+
+    <div class="sec"><h2>Prayer Service</h2></div>
+    <a class="kpromo" href="#doa">
+      <div class="kp-top"><span>Pokok doa</span></div>
+      <strong>Ada yang mau didoakan? Tulis di sini, boleh tanpa nama.</strong>
+      <span class="kp-go">Kirim pokok doa <svg class="i"><use href="#i-arrow"/></svg></span>
     </a>
 
     <div class="sec"><h2>Ayat Hari Ini</h2></div>
@@ -483,6 +510,43 @@ svg.i{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.7;stro
     </div>
   </main>
 
+  <!-- PRAYER SERVICE -->
+  <main class="view" id="v-doa" hidden>
+    <h1 class="ptitle">Prayer Service</h1>
+    <p class="psub">Tulis apa yang mau didoakan. Tim doa akan mendoakannya bersama.</p>
+    <div class="doa-wrap">
+      <form id="prayer" class="kcard pledge" novalidate>
+        <label id="lWho">Kirim sebagai</label>
+        <div class="seg" id="seg" role="radiogroup" aria-labelledby="lWho">
+          <button type="button" role="radio" aria-checked="true" data-w="name">Pakai namaku</button>
+          <button type="button" role="radio" aria-checked="false" data-w="anon">Anonim</button>
+        </div>
+        <div class="field" id="pnWrap" style="margin-top:14px">
+          <label for="pname">Nama</label>
+          <div class="box"><input id="pname" type="text" maxlength="40" autocomplete="off" placeholder="Namamu"></div>
+        </div>
+        <p class="anon-note" id="anonNote" hidden>Namamu tidak ikut terkirim. Hanya pokok doa dan kategorinya yang masuk ke tim doa.</p>
+
+        <label id="lCat" style="margin-top:16px">Kategori</label>
+        <div class="qs" id="pcats" role="radiogroup" aria-labelledby="lCat" style="margin-top:0"></div>
+
+        <label for="ptext">Pokok doa</label>
+        <textarea id="ptext" maxlength="500" placeholder="Contoh: doakan ujian saya minggu depan, dan keluarga yang sedang sakit."></textarea>
+        <div class="count"><span id="pcount">0/500</span></div>
+        <p class="err" id="perr2" role="alert"></p>
+        <button class="btn" id="psend" type="submit"><span id="psendTxt">Kirim pokok doa</span></button>
+      </form>
+
+      <section class="kcard doa-done" id="doaDone" hidden aria-live="polite">
+        <div class="okmark"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></div>
+        <h2>Pokok doamu sudah dikirim</h2>
+        <p class="kd" id="doneMsg"></p>
+        <p class="stat" id="doneStat"></p>
+        <button class="btn" id="again" type="button">Kirim pokok doa lain</button>
+      </section>
+    </div>
+  </main>
+
   <!-- ALKITAB -->
   <main class="view" id="v-alkitab" hidden>
     <h1 class="ptitle">Alkitab</h1>
@@ -528,6 +592,7 @@ svg.i{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.7;stro
     <a class="tab" href="#beranda" data-tab="beranda"><svg class="i"><use href="#i-home"/></svg>Beranda</a>
     <a class="tab" href="#jadwal" data-tab="jadwal"><svg class="i"><use href="#i-cal"/></svg>Jadwal</a>
     <a class="tab" href="#komitmen" data-tab="komitmen"><svg class="i"><use href="#i-heart"/></svg>Komitmen</a>
+    <a class="tab" href="#doa" data-tab="doa"><svg class="i"><use href="#i-flame"/></svg>Doa</a>
     <a class="tab" href="#alkitab" data-tab="alkitab"><svg class="i"><use href="#i-book"/></svg>Alkitab</a>
   </nav>
 </div>
@@ -634,7 +699,7 @@ svg.i{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.7;stro
   function pulse(el,cls,ms){el.classList.remove(cls);void el.offsetWidth;el.classList.add(cls);setTimeout(function(){el.classList.remove(cls)},ms)}
 
   // routing
-  var VIEWS=['beranda','jadwal','komitmen','alkitab'];
+  var VIEWS=['beranda','jadwal','komitmen','doa','alkitab'];
   function route(){
     var h=(location.hash||'').replace('#','');if(VIEWS.indexOf(h)<0)h='beranda';
     VIEWS.forEach(function(v){$('#v-'+v).hidden=v!==h});
@@ -777,6 +842,71 @@ svg.i{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.7;stro
   document.addEventListener('input',function(e){
     if(e.target.id==='pledge'){var c=loadC();c.pledge=e.target.value;saveC(c);var p=$('#perr');if(p)p.textContent=''}
   });
+
+  // prayer service: submits to a Google Sheet through a Google Apps Script web app.
+  // Paste the web app URL (ends in /exec) below. See apps-script/Code.gs in the repo.
+  var SHEET_URL='';
+  var PCATS=['Keluarga','Kesehatan','Studi & kerja','Pergumulan','Pelayanan','Ucapan syukur','Lainnya'];
+  var pWho='name',pCat='';
+  function pq(){try{return JSON.parse(store('mdcy-prayer-q')||'[]')||[]}catch(e){return []}}
+  function setPq(a){store('mdcy-prayer-q',JSON.stringify(a))}
+  function sendOne(item){
+    if(!SHEET_URL)return Promise.resolve(false);
+    return fetch(SHEET_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(item)}).then(function(){return true},function(){return false});
+  }
+  var flushing=false;
+  function flushQ(){
+    if(flushing||!SHEET_URL)return Promise.resolve();
+    flushing=true;
+    var q=pq();
+    return q.reduce(function(p,it){return p.then(function(left){return sendOne(it).then(function(ok){if(!ok)left.push(it);return left})})},Promise.resolve([])).then(function(left){setPq(left);flushing=false}).catch(function(){flushing=false});
+  }
+  function renderPrayerForm(){
+    $('#pcats').innerHTML=PCATS.map(function(c){return '<button class="chip" type="button" role="radio" aria-checked="false" data-c="'+esc(c)+'">'+esc(c)+'</button>'}).join('');
+  }
+  function setWho(w){
+    pWho=w;$$('#seg button').forEach(function(b){b.setAttribute('aria-checked',String(b.dataset.w===w))});
+    $('#pnWrap').hidden=w==='anon';$('#anonNote').hidden=w!=='anon';
+  }
+  function prayerReset(){
+    $('#ptext').value='';$('#pcount').textContent='0/500';pCat='';
+    $$('#pcats .chip').forEach(function(b){b.setAttribute('aria-checked','false')});
+    $('#perr2').textContent='';
+    $('#doaDone').hidden=true;$('#doaDone').classList.remove('show');$('#prayer').hidden=false;
+    $('#psend').disabled=false;$('#psendTxt').textContent='Kirim pokok doa';
+  }
+  function prayerInit(){
+    renderPrayerForm();
+    var u=store('mdcy-user');if(u)$('#pname').value=u;
+    $('#seg').addEventListener('click',function(e){var b=e.target.closest('button');if(b)setWho(b.dataset.w)});
+    $('#pcats').addEventListener('click',function(e){
+      var b=e.target.closest('.chip');if(!b)return;
+      pCat=pCat===b.dataset.c?'':b.dataset.c;
+      $$('#pcats .chip').forEach(function(x){x.setAttribute('aria-checked',String(x.dataset.c===pCat));x.setAttribute('aria-pressed',String(x.dataset.c===pCat))});
+      $('#perr2').textContent='';
+    });
+    $('#ptext').addEventListener('input',function(){$('#pcount').textContent=this.value.length+'/500';$('#perr2').textContent=''});
+    $('#prayer').addEventListener('submit',function(e){
+      e.preventDefault();
+      var text=$('#ptext').value.trim();
+      if(!pCat){$('#perr2').textContent='Pilih satu kategori dulu.';buzz([30,40,30]);return}
+      if(text.length<5){$('#perr2').textContent='Tulis pokok doanya, minimal beberapa kata.';$('#ptext').focus();buzz([30,40,30]);return}
+      var nm=pWho==='anon'?'Anonim':($('#pname').value.trim()||'Tanpa nama');
+      var item={waktu:new Date().toISOString(),nama:nm,kategori:pCat,pokokDoa:text};
+      $('#psend').disabled=true;$('#psendTxt').textContent='Mengirim...';
+      sendOne(item).then(function(ok){
+        if(!ok){var q=pq();q.push(item);setPq(q)}
+        $('#doneMsg').textContent=(pWho==='anon'?'Dikirim tanpa nama. ':'Terima kasih, '+nm+'. ')+'Tim doa akan mendoakannya.';
+        $('#doneStat').textContent=ok?'Terkirim ke Google Sheet':'Belum terkirim ke Google Sheet. Disimpan di handphone ini dan dicoba lagi nanti.';
+        $('#prayer').hidden=true;var d=$('#doaDone');d.hidden=false;void d.offsetWidth;d.classList.add('show');
+        buzz([20,40,20]);window.scrollTo(0,0);
+      });
+    });
+    $('#again').addEventListener('click',prayerReset);
+    window.addEventListener('online',flushQ);
+    flushQ();
+  }
+  prayerInit();
 
   // login (client-side only: a simple welcome gate, not real security)
   var gate=$('#gate'),form=$('#login'),toastT;
